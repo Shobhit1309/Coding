@@ -98,3 +98,45 @@ Below is the sample of log file after successful completion of program:
 2019-08-08 22:35:14,499:INFO:Process completed Successfully!! Combined Customer data file generated.
 
 
+========================================================
+Unit Testing of Sessionm_data_generation.py program
+========================================================
+
+Python Unittest module is used to write unit test cases in order to perform basic unit testing of Sessionm_data_generation.py program. In Unittesting the below points are tested to ensure Sessionm_data_generation.py is working fine.
+	a) Matching the no. of rows present in csv file vs no. of rows loaded in dataframe.
+	b) Matching the no. of columns present in csv file vs no. of columns loaded in dataframe.
+	
+Below command line is used to execute the unit test case:
+python code_testing.py "customer1.csv" "customer2.csv"
+
+Note: Keep the datafiles and unit test program in the same directory.
+
+Output of program:
+------------------
+
+Checking row count of file vs row count of dataframe for file customer1.csv
+--------------------------------------------------------------------------------
+Row Count from file: 4          Row Count from dataframe: 4
+
+Unit Test Passed OK
+
+
+Checking row count of file vs row count of dataframe for file customer2.csv
+--------------------------------------------------------------------------------
+Row Count from file: 4          Row Count from dataframe: 4
+
+Unit Test Passed OK
+
+
+Checking column count of file vs column count of dataframe for file customer1.csv
+--------------------------------------------------------------------------------
+Column Count from file: 6               Column Count from dataframe: 6
+
+Unit Test Passed OK
+
+
+Checking column count of file vs column count of dataframe for file customer2.csv
+--------------------------------------------------------------------------------
+Column Count from file: 7               Column Count from dataframe: 7
+
+Unit Test Passed OK
