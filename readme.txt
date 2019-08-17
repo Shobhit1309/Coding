@@ -76,6 +76,13 @@ Output of program:
  Program ended on : Aug 17 2019 18:33:19
 
  ----------------------------------------------------------------------------------------------------
+ 
+ Data Validation Checks in the program:
+ =======================================
+A function is used in the program to validate the cleaned data before writing it to csv. This will check the below: 
+1) Emailids must be encrypted
+2) Gender must be M or F
+3) Opted_in must be true or false
 
 Logging:
 ========
