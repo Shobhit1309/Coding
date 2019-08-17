@@ -33,8 +33,6 @@ The format of last contacted date is inconsistent. Hence converting all in YYYY-
  
  5) By looking at the data 'attr1' shows the vehicle owned by a customer. Since this field is not mentioned in the API documentation and is not adding any insights to the data, hence dropping the column.
  
- 6) By looking at the data 'attr2' shows the phone number of customers. This should be placed under phone number column. Also there is one more information which can be derived from phone number i.e country. +1 is a code for USA, which can be placed under country column.
- 
  
 Questions:
 ##########
@@ -44,7 +42,6 @@ Questions:
  2) How come sam2382@mailinator .com with spaces in the email id column allowed in the source system. Is there no validation on email id field on source?
  
  3) What is the use of engagement,attr1 in customer1.csv and pets,attr1 in customer2.csv as no information is derived from these columns which can be used in other columns mentioned in API documentation?
-
 
 
 ++++++++++++++++++++++++++++++++++++++++
@@ -65,37 +62,56 @@ Also there is help and version options available to know more about the program 
 python sessionm_data_generation.py --help
 python sessionm_data_generation.py --version
 
+Output of program:
+==================
+
+--------------------------------- SessionM-Data-Generation-Program ---------------------------------
+
+ Program started on: Aug 17 2019 18:33:19
+ Loading datafiles into dataframe: DONE
+ Cleaning data: DONE
+ Running data sanity checks on cleaned data: DONE
+ Exporting data into Combined_Customer_data.csv: DONE
+ Process completed Successfully!
+ Program ended on : Aug 17 2019 18:33:19
+
+ ----------------------------------------------------------------------------------------------------
+
 Logging:
 ========
 Logging feature is provided in the program , hence while execution the program creates log file and capture all the activities 
 which are running inside a program.
 
 Below is the sample of log file after successful completion of program:
------------------------------------------------------------
+-----------------------------------------------------------------------
 
-2019-08-08 22:35:14,452:INFO:input params --------------------------------------------------------------------------------
-2019-08-08 22:35:14,452:INFO:Namespace(source_file1='customer1.csv', source_file2='customer2.csv')
-2019-08-08 22:35:14,452:INFO:--------------------------------------------------------------------------------
-2019-08-08 22:35:14,452:INFO:Calling load_csv function to read csv and create dataframes
-2019-08-08 22:35:14,468:INFO:customer1.csv is loaded in df1 dataframe
-2019-08-08 22:35:14,468:INFO:customer2.csv is loaded in df2 dataframe
-2019-08-08 22:35:14,468:INFO:Calling clean_data function to clean data and create a new dataframe new_df
-2019-08-08 22:35:14,468:INFO:finding duplicate id and replacing it with unique alphanumeric code to maintain consistence and to join with other data frame
-2019-08-08 22:35:14,468:INFO:merging df1 and df2 dataframes and creating a new one
-2019-08-08 22:35:14,468:INFO:assigning 1 (female) to Sandrine after merging dataframes
-2019-08-08 22:35:14,483:INFO:renaming columns as per API documentation
-2019-08-08 22:35:14,483:INFO:tranlating 0 and 1 to Male and Female
-2019-08-08 22:35:14,483:INFO:dropping the below columns which are not required:
+2019-08-17 18:33:19,064:INFO:Input params
+2019-08-17 18:33:19,064:INFO:--------------------------------------------------------------------------------
+2019-08-17 18:33:19,064:INFO:Namespace(source_file1='customer1.csv', source_file2='customer2.csv')
+2019-08-17 18:33:19,064:INFO:--------------------------------------------------------------------------------
+2019-08-17 18:33:19,064:INFO:Calling load_csv function to read csv and create dataframes
+2019-08-17 18:33:19,079:INFO:customer1.csv is loaded in df1 dataframe
+2019-08-17 18:33:19,079:INFO:customer2.csv is loaded in df2 dataframe
+2019-08-17 18:33:19,111:INFO:Calling clean_data function to clean data and create a new dataframe new_df
+2019-08-17 18:33:19,111:INFO:Finding duplicate id and replacing it with unique alphanumeric code to maintain consistence and to join with other data frame
+2019-08-17 18:33:19,111:INFO:Merging df1 and df2 dataframes and creating a new one
+2019-08-17 18:33:19,127:INFO:Assigning 1 (female) to Sandrine after merging dataframes
+2019-08-17 18:33:19,127:INFO:Renaming columns as per API documentation
+2019-08-17 18:33:19,131:INFO:Tranlating 0 to Male 1 to Female and other codes to invalid gender
+2019-08-17 18:33:19,131:INFO:Dropping the below columns which are not required:
 			attr1_x from customer1.csv, engagement from customer1.csv, pets from customer2.csv, vehcle from customer2.csv
-2019-08-08 22:35:14,483:INFO:removing spaces from email id column
-2019-08-08 22:35:14,483:INFO:additing the below columns as per sessionM API documentation
+2019-08-17 18:33:19,131:INFO:Removing spaces from email id column
+2019-08-17 18:33:19,131:INFO:Encrypting email ids
+2019-08-17 18:33:19,226:INFO:Additing the below columns as per sessionM API documentation
 			opted_in,external_id_type,locale,ip,dob,address,city,state,zip,country,referral,phone_type
-2019-08-08 22:35:14,483:INFO:correcting the date format present in custom_2 column
-2019-08-08 22:35:14,483:INFO:removing NaT from custom_2 field
-2019-08-08 22:35:14,483:INFO:arranging the columns in the order mentioned in API documentation
-2019-08-08 22:35:14,499:INFO:Calling export_data function to export the data in combined customer data csv file
-2019-08-08 22:35:14,499:INFO:Exporting data in CSV: Combined_Customer_data.csv
-2019-08-08 22:35:14,499:INFO:Process completed Successfully!! Combined Customer data file generated.
+2019-08-17 18:33:19,230:INFO:Correcting the date format present in custom_2 column
+2019-08-17 18:33:19,230:INFO:Removing NaT from custom_2 field
+2019-08-17 18:33:19,230:INFO:Arranging the columns in the order mentioned in API documentation
+2019-08-17 18:33:19,230:INFO:Calling data_validator function to perform data sanity checks before exporting to csv file
+2019-08-17 18:33:19,262:INFO:Calling export_data function to export the data in combined customer data csv file
+2019-08-17 18:33:19,262:INFO:Exporting data in CSV: Combined_Customer_data.csv
+2019-08-17 18:33:19,266:INFO:Data exported in CSV!
+2019-08-17 18:33:19,266:INFO:Process completed Successfully!! Combined Customer data file generated.
 
 
 ========================================================
