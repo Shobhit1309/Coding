@@ -24,10 +24,6 @@ Assumptions for Customer2.csv:
 2) By looking at the data and sessionM api documentation 'tier' means the plans opted by customer.In this csv all the customers are opted-in for plans hence the value would be True under 'opted_in' column and details will be kept under custom_attr1.
 
 3) By looking at the data 'lastcontact' shows last time the customer was contacted or used any service.Since this field is not mentioned in the API documentation hence will be placed under custom_attr2.Keeping this field because it can be used if someone whats to get insights of data for the customers which are active recently.
-
-Correction measure taken:
--------------------------
-The format of last contacted date is inconsistent. Hence converting all in YYYY-MM-DD format.
  
 4) By looking at the data under 'pets' column , 0 means no pets own by a customer and 1 means pets own by a customer. As per SessionM API documentation, there is no column related to 'pets' information and and is not adding any insights to the data,  hence dropping the column.
 
