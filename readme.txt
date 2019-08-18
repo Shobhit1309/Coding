@@ -122,9 +122,9 @@ Unit Testing of Sessionm_data_generation.py program
 ========================================================
 
 Python Unittest module is used to write unit test cases in order to perform basic unit testing of Sessionm_data_generation.py program. In Unittesting the below points are tested to ensure Sessionm_data_generation.py is working fine.
-	a) Matching the no. of rows present in csv file vs no. of rows loaded in dataframe.
-	b) Matching the no. of columns present in csv file vs no. of columns loaded in dataframe.
-	
+a) Matching the no. of rows present in csv file vs no. of rows loaded in dataframe.
+b) Matching the no. of columns present in csv file vs no. of columns loaded in dataframe.
+
 Below command line is used to execute the unit test case:
 python code_testing.py "customer1.csv" "customer2.csv"
 
